@@ -29,12 +29,11 @@
             justify-content: center;
         }
 
-        /* ===== CADRE DESKTOP : ratio 838/412 préservé ===== */
+        /* ===== CADRE DESKTOP : taille FIXE 838×412 ===== */
         .frame {
             position: relative;
-            width: 43.65vw;          /* 838 / 1920 */
-            aspect-ratio: 838 / 412;
-            max-width: 838px;
+            width: 838px;
+            height: 412px;
         }
 
         .frame > svg {
@@ -43,7 +42,6 @@
             display: block;
         }
 
-        /* Cache la version mobile par défaut */
         .frame-mobile {
             display: none !important;
         }
@@ -86,17 +84,17 @@
             opacity: 0.4;
         }
 
-        /* ===== MOBILE (< 768px) : marges fixes 24px ===== */
+        /* ===== MOBILE (< 768px) : marges 24px, ratio 339/759 ===== */
         @media (max-width: 767px) {
+            body {
+                padding: 24px;
+            }
+
             .frame {
-                position: absolute;
-                top: 24px;
-                bottom: 24px;
-                left: 24px;
-                right: 24px;
-                width: auto;
-                max-width: none;
-                aspect-ratio: auto;
+                width: 100%;
+                height: 100%;
+                max-width: 339px;
+                max-height: 759px;
             }
 
             .frame-desktop {
@@ -106,29 +104,17 @@
                 display: block !important;
             }
 
+            /* Logo en haut, liens en bas, comme sur ton design Figma */
             .content {
                 flex-direction: column;
-                gap: 0;
-                padding: 0;
-                top: auto;
+                justify-content: space-between;
+                top: 0;
                 bottom: 0;
+                left: 0;
+                right: 0;
                 transform: none;
-                height: 100%;
-                justify-content: center;
-            }
-
-            .content .logo {
-                position: absolute;
-                top: 35%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            .content .links {
-                position: absolute;
-                top: 65%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                padding: 25% 0 30% 0;
+                align-items: center;
             }
 
             .logo svg {
@@ -142,7 +128,7 @@
     <div class="frame">
 
         <!-- ============================================= -->
-        <!-- CADRE DESKTOP (horizontal 838×412)             -->
+        <!-- CADRE DESKTOP (838×412)                        -->
         <!-- ============================================= -->
         <svg class="frame-desktop" viewBox="0 0 839 412" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <path d="M824.799 0.5H838.5V14.2087" stroke="black" stroke-miterlimit="10"/>
@@ -160,33 +146,21 @@
         </svg>
 
         <!-- ============================================= -->
-        <!-- CADRE MOBILE (vertical 327×764)                -->
-        <!-- Ratio preservé, dessins propres aux coins      -->
+        <!-- CADRE MOBILE (339×759)                         -->
         <!-- ============================================= -->
-        <svg class="frame-mobile" viewBox="0 0 327 764" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <!-- Coin haut-gauche -->
-            <path d="M0.5 14.2087V0.5H14.2007" stroke="black" stroke-miterlimit="10"/>
-            <path d="M8.35659 0.5C8.35659 4.83839 4.84688 8.3704 0.5 8.3704" stroke="black" stroke-miterlimit="10"/>
-
-            <!-- Coin haut-droit -->
-            <path d="M312.799 0.5H326.5V14.2087" stroke="black" stroke-miterlimit="10"/>
-            <path d="M326.499 8.3704C322.168 8.3704 318.642 4.85452 318.642 0.5" stroke="black" stroke-miterlimit="10"/>
-
-            <!-- Encoches haut -->
-            <path d="M31.957 4.37075V0.435547" stroke="black" stroke-miterlimit="10"/>
-            <path d="M295.205 4.37075V0.435547" stroke="black" stroke-miterlimit="10"/>
-
-            <!-- Coin bas-gauche -->
-            <path d="M14.2007 763.144H0.5V749.436" stroke="black" stroke-miterlimit="10"/>
-            <path d="M0.5 755.273C4.83078 755.273 8.35659 758.789 8.35659 763.144" stroke="black" stroke-miterlimit="10"/>
-
-            <!-- Coin bas-droit -->
-            <path d="M326.5 749.436V763.144H312.799" stroke="black" stroke-miterlimit="10"/>
-            <path d="M318.643 763.144C318.643 758.805 322.152 755.273 326.499 755.273" stroke="black" stroke-miterlimit="10"/>
-
-            <!-- Encoches bas -->
-            <path d="M295.045 759.275V763.211" stroke="black" stroke-miterlimit="10"/>
-            <path d="M31.7793 759.275V763.211" stroke="black" stroke-miterlimit="10"/>
+        <svg class="frame-mobile" width="339" height="759" viewBox="0 0 339 759" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <path d="M0.5 11.7735L0.5 0.50002L11.78 0.50002" stroke="black" stroke-miterlimit="10"/>
+            <path d="M6.97604 0.500503C6.97604 4.06402 4.08306 6.96519 0.5 6.96519" stroke="black" stroke-miterlimit="10"/>
+            <path d="M3.68492 26.2502L0.446899 26.2502" stroke="black" stroke-miterlimit="10"/>
+            <path d="M327.113 0.500001L338.393 0.500001L338.393 11.7734" stroke="black" stroke-miterlimit="10"/>
+            <path d="M338.392 6.96501C334.823 6.96501 331.916 4.0771 331.916 0.500328" stroke="black" stroke-miterlimit="10"/>
+            <path d="M335.209 26.382L338.447 26.382" stroke="black" stroke-miterlimit="10"/>
+            <path d="M11.78 758.036L0.5 758.036L0.5 746.762" stroke="black" stroke-miterlimit="10"/>
+            <path d="M0.5 751.571C4.06978 751.571 6.97604 754.459 6.97604 758.036" stroke="black" stroke-miterlimit="10"/>
+            <path d="M3.68492 732.152L0.446899 732.152" stroke="black" stroke-miterlimit="10"/>
+            <path d="M338.393 746.762L338.393 758.036L327.113 758.036" stroke="black" stroke-miterlimit="10"/>
+            <path d="M331.916 758.036C331.916 754.472 334.809 751.571 338.392 751.571" stroke="black" stroke-miterlimit="10"/>
+            <path d="M335.209 732.298L338.447 732.298" stroke="black" stroke-miterlimit="10"/>
         </svg>
 
         <!-- ============================================= -->
