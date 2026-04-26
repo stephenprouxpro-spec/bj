@@ -93,29 +93,23 @@
 
     /* ---------- Mobile : cadre 339×759 ---------- */
     @media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
+      .frame {
+        width: 339px;
+        height: 759px;
+      }
 
-  .frame {
-    width: auto;
-    height: 90vh;
-    max-height: 759px;
-    aspect-ratio: 339 / 759;
-  }
+      .frame__corners--desktop { display: none; }
+      .frame__corners--mobile { display: block; }
 
-  .frame__corners--desktop { display: none; }
-  .frame__corners--mobile { display: block; }
+      .row {
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+        gap: 28px;
+      }
 
-  .row {
-    flex-direction: column;
-    align-items: center;
-    width: auto;
-    gap: 28px;
-  }
-
-  .nav { align-items: center; }
-}
+      .nav { align-items: center; }
+    }
   </style>
 </head>
 <body>
