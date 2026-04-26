@@ -29,11 +29,12 @@
             justify-content: center;
         }
 
-        /* ===== CADRE : taille fixe desktop/tablet ===== */
+        /* ===== CADRE DESKTOP : ratio 838/412 préservé ===== */
         .frame {
             position: relative;
-            width: 839px;
-            height: 412px;
+            width: 43.65vw;          /* 838 / 1920 */
+            aspect-ratio: 838 / 412;
+            max-width: 838px;
         }
 
         .frame > svg {
@@ -47,7 +48,7 @@
             display: none !important;
         }
 
-        /* ===== CONTENU CENTRÉ DANS LE CADRE ===== */
+        /* ===== CONTENU CENTRÉ ===== */
         .content {
             position: absolute;
             top: 50%;
@@ -58,11 +59,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 6%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
         }
 
         .logo svg {
@@ -78,7 +74,6 @@
             text-align: center;
             font-size: 12px;
             letter-spacing: 0.08em;
-            font-weight: 400;
         }
 
         .links a {
@@ -91,12 +86,17 @@
             opacity: 0.4;
         }
 
-        /* ===== MOBILE UNIQUEMENT (< 768px) ===== */
+        /* ===== MOBILE (< 768px) : marges fixes 24px ===== */
         @media (max-width: 767px) {
             .frame {
-                width: 90vw;
-                height: 85vh;
-                max-width: 500px;
+                position: absolute;
+                top: 24px;
+                bottom: 24px;
+                left: 24px;
+                right: 24px;
+                width: auto;
+                max-width: none;
+                aspect-ratio: auto;
             }
 
             .frame-desktop {
@@ -108,8 +108,27 @@
 
             .content {
                 flex-direction: column;
-                gap: 200px;
+                gap: 0;
                 padding: 0;
+                top: auto;
+                bottom: 0;
+                transform: none;
+                height: 100%;
+                justify-content: center;
+            }
+
+            .content .logo {
+                position: absolute;
+                top: 35%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .content .links {
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
 
             .logo svg {
@@ -123,7 +142,7 @@
     <div class="frame">
 
         <!-- ============================================= -->
-        <!-- CADRE DESKTOP (ratio 839x412 préservé)         -->
+        <!-- CADRE DESKTOP (horizontal 838×412)             -->
         <!-- ============================================= -->
         <svg class="frame-desktop" viewBox="0 0 839 412" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <path d="M824.799 0.5H838.5V14.2087" stroke="black" stroke-miterlimit="10"/>
@@ -141,25 +160,37 @@
         </svg>
 
         <!-- ============================================= -->
-        <!-- CADRE MOBILE (étiré pour remplir le conteneur)-->
+        <!-- CADRE MOBILE (vertical 327×764)                -->
+        <!-- Ratio preservé, dessins propres aux coins      -->
         <!-- ============================================= -->
-        <svg class="frame-mobile" viewBox="0 0 839 412" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M824.799 0.5H838.5V14.2087" stroke="black" stroke-miterlimit="10"/>
+        <svg class="frame-mobile" viewBox="0 0 327 764" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- Coin haut-gauche -->
             <path d="M0.5 14.2087V0.5H14.2007" stroke="black" stroke-miterlimit="10"/>
-            <path d="M838.499 8.3704C834.168 8.3704 830.642 4.85452 830.642 0.5" stroke="black" stroke-miterlimit="10"/>
             <path d="M8.35659 0.5C8.35659 4.83839 4.84688 8.3704 0.5 8.3704" stroke="black" stroke-miterlimit="10"/>
+
+            <!-- Coin haut-droit -->
+            <path d="M312.799 0.5H326.5V14.2087" stroke="black" stroke-miterlimit="10"/>
+            <path d="M326.499 8.3704C322.168 8.3704 318.642 4.85452 318.642 0.5" stroke="black" stroke-miterlimit="10"/>
+
+            <!-- Encoches haut -->
             <path d="M31.957 4.37075V0.435547" stroke="black" stroke-miterlimit="10"/>
-            <path d="M807.205 4.37075V0.435547" stroke="black" stroke-miterlimit="10"/>
-            <path d="M14.2007 411.144H0.5V397.436" stroke="black" stroke-miterlimit="10"/>
-            <path d="M838.5 397.436V411.144H824.799" stroke="black" stroke-miterlimit="10"/>
-            <path d="M0.5 403.273C4.83078 403.273 8.35659 406.789 8.35659 411.144" stroke="black" stroke-miterlimit="10"/>
-            <path d="M830.643 411.144C830.643 406.805 834.152 403.273 838.499 403.273" stroke="black" stroke-miterlimit="10"/>
-            <path d="M807.045 407.275V411.211" stroke="black" stroke-miterlimit="10"/>
-            <path d="M31.7793 407.275V411.211" stroke="black" stroke-miterlimit="10"/>
+            <path d="M295.205 4.37075V0.435547" stroke="black" stroke-miterlimit="10"/>
+
+            <!-- Coin bas-gauche -->
+            <path d="M14.2007 763.144H0.5V749.436" stroke="black" stroke-miterlimit="10"/>
+            <path d="M0.5 755.273C4.83078 755.273 8.35659 758.789 8.35659 763.144" stroke="black" stroke-miterlimit="10"/>
+
+            <!-- Coin bas-droit -->
+            <path d="M326.5 749.436V763.144H312.799" stroke="black" stroke-miterlimit="10"/>
+            <path d="M318.643 763.144C318.643 758.805 322.152 755.273 326.499 755.273" stroke="black" stroke-miterlimit="10"/>
+
+            <!-- Encoches bas -->
+            <path d="M295.045 759.275V763.211" stroke="black" stroke-miterlimit="10"/>
+            <path d="M31.7793 759.275V763.211" stroke="black" stroke-miterlimit="10"/>
         </svg>
 
         <!-- ============================================= -->
-        <!-- CONTENU : logo + liens                         -->
+        <!-- CONTENU                                        -->
         <!-- ============================================= -->
         <div class="content">
 
