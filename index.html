@@ -24,17 +24,18 @@
             height: 100dvh;
             overflow: hidden;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
         }
 
         /* ===== CADRE SVG ===== */
         .frame {
-            position: relative;
-            width: min(85vw, calc(85vh * (839 / 412)));
+            position: absolute;
+            left: 25%;
+            right: 25%;
+            top: 50%;
+            transform: translateY(-50%);
             aspect-ratio: 839 / 412;
-            max-width: 1100px;
+            max-height: 70vh;
         }
 
         .frame svg {
@@ -89,28 +90,21 @@
 
         /* ===== RESPONSIVE MOBILE ===== */
         @media (max-width: 640px) {
-            .frame {
-                width: 90vw;
-                aspect-ratio: 600 / 800;
-                max-width: none;
-            }
-
-            .frame svg {
-                /* Le cadre garde son design en s'étirant verticalement */
-                width: 100%;
-                height: 100%;
-            }
-
-            .content {
-                flex-direction: column;
-                gap: 50px;
-                padding: 0;
-            }
-
-            .logo svg {
-                height: 22px;
-            }
-        }
+    .frame {
+        left: 6%;
+        right: 6%;
+        aspect-ratio: 600 / 800;
+        max-height: 80vh;
+    }
+    .content {
+        flex-direction: column;
+        gap: 50px;
+        padding: 0 8%;
+    }
+    .logo svg {
+        height: 22px;
+    }
+}
     </style>
 </head>
 <body>
@@ -120,7 +114,7 @@
     <!-- ============================================= -->
     <div class="frame">
 
-        <svg viewBox="0 0 839 412" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <svg viewBox="0 0 839 412" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path d="M824.799 0.5H838.5V14.2087" stroke="black" stroke-miterlimit="10"/>
             <path d="M0.5 14.2087V0.5H14.2007" stroke="black" stroke-miterlimit="10"/>
             <path d="M838.499 8.3704C834.168 8.3704 830.642 4.85452 830.642 0.5" stroke="black" stroke-miterlimit="10"/>
