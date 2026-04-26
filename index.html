@@ -30,8 +30,8 @@
     /* ---------- Cadre desktop/tablette : taille FIXE ---------- */
     .frame {
       position: relative;
-      width: 839px;
-      height: 412px;
+      width: 671px;
+      height: 330px;
       flex-shrink: 0;
     }
 
@@ -93,23 +93,29 @@
 
     /* ---------- Mobile : cadre 339×759 ---------- */
     @media (max-width: 768px) {
-      .frame {
-        width: 339px;
-        height: 759px;
-      }
+  body {
+    padding: 10px;
+  }
 
-      .frame__corners--desktop { display: none; }
-      .frame__corners--mobile { display: block; }
+  .frame {
+    width: auto;
+    height: 90vh;
+    max-height: 759px;
+    aspect-ratio: 339 / 759;
+  }
 
-      .row {
-        flex-direction: column;
-        align-items: center;
-        width: auto;
-        gap: 28px;
-      }
+  .frame__corners--desktop { display: none; }
+  .frame__corners--mobile { display: block; }
 
-      .nav { align-items: center; }
-    }
+  .row {
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    gap: 28px;
+  }
+
+  .nav { align-items: center; }
+}
   </style>
 </head>
 <body>
